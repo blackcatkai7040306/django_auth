@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'dj_rest_auth.registration',
     'dj_rest_auth',
     'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.facebook',
     'auth_modules'
 
     
@@ -157,7 +158,7 @@ REST_FRAMEWORK = {
 REST_USE_JWT = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
-SITE_ID = 2
+SITE_ID = 3
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
