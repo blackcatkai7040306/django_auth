@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django.contrib.sites',
+    'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
     'allauth',
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'connect.urls'
@@ -156,8 +158,8 @@ REST_FRAMEWORK = {
 }
 
 REST_USE_JWT = True
-JWT_AUTH_COOKIE = 'my-app-auth'
-JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_COOKIE = 'auth_token'
+JWT_AUTH_REFRESH_COOKIE = 'refresh_token'
 SITE_ID = 3
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
@@ -172,3 +174,9 @@ ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 AUTH_USER_MODEL = 'auth_modules.CustomUser'
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True 
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+]
